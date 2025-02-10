@@ -1,0 +1,11 @@
+launch:
+  - arg:
+      name: 'rviz_config'
+      default: 'basic_config.rviz'
+
+  - node:
+      pkg: 'rviz2'
+      exec: 'rviz2'
+      name: 'rviz2'
+      cmd: 'rviz2 -d $(find-pkg-share rviz_sim)/config/$(var rviz_config)'
+    
