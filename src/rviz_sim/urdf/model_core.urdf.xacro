@@ -2,6 +2,8 @@
 <robot name="myfirst" xmlns:xacro="http://www.ros.org/wiki/xacro">
     <xacro:include filename="wings.xacro"/>
 
+    <link name="world"/>
+
     <joint name="base_joint" type="fixed">
         <parent link="world"/>
         <child link="base_link"/>

@@ -8,4 +8,9 @@ launch:
       exec: 'rviz2'
       name: 'rviz2'
       args: '-d $(find-pkg-share rviz_sim)/config/$(var rviz_config)'
+
+  - node:
+      pkg: 'robot_state_publisher'
+      exec: 'robot_state_publisher'
+      name: 'robot_state_publisher'
     
