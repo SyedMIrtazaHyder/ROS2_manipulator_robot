@@ -7,5 +7,5 @@ launch:
       pkg: 'rviz2'
       exec: 'rviz2'
       name: 'rviz2'
-      cmd: 'rviz2 -d $(find-pkg-share rviz_sim)/config/$(var rviz_config)'
+      args: '-d $(find-pkg-share rviz_sim)/config/$(var rviz_config)'
     
