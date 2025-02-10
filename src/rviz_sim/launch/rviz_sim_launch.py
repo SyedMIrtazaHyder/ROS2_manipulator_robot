@@ -22,19 +22,26 @@ def generate_launch_description():
             package='rviz2',
             arguments=['-d', PathJoinSubstitution([rviz_sim, 'config', LaunchConfiguration('rviz2_config')])]
             )
+
     robot_state_publisher = Node(
             executable='robot_state_publisher',
             package='robot_state_publisher',
-            output='screen',
             parameters=[{
                 'robot_description': Command(['xacro', ' ', PathJoinSubstitution([rviz_sim, 'urdf', LaunchConfiguration('urdf_model')])]), 'use_sim_time': use_sim_time,
                 'debug': True
                 }]
             )
 
+    joint_state_publisher = Node(
+            executable='joint_state_publisher',
+            package='joint_state_publisher',
+            )
+
     ld.add_action(rviz2_config)
+    ld.add_action(urdf_model)
     ld.add_action(rviz2)
     ld.add_action(robot_state_publisher)
+    ld.add_action(joint_state_publisher)
 
     # Goal 2: Launching rviz world with arguments a) rviz.config b) urdf model
     return ld
