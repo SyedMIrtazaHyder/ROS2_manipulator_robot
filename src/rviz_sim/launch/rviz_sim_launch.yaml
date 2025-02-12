@@ -1,4 +1,5 @@
 launch:
+  # Only for launching rviz
   - arg:
       name: 'rviz_config'
       default: 'basic_config.rviz'
@@ -9,8 +10,3 @@ launch:
       name: 'rviz2'
       args: '-d $(find-pkg-share rviz_sim)/config/$(var rviz_config)'
 
-  - node:
-      pkg: 'robot_state_publisher'
-      exec: 'robot_state_publisher'
-      name: 'robot_state_publisher'
-    
