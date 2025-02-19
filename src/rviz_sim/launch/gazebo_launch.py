@@ -13,8 +13,8 @@ def generate_launch_description():
             description="World to load in Gazebo")
 
     set_env_vars = AppendEnvironmentVariable(
-            'IGN_GAZEBO_RESOURCE_PATH',
-            PathJoinSubstitution([rviz_sim, 'worlds'])
+            'GZ_SIM_RESOURCE_PATH',
+            PathJoinSubstitution([rviz_sim, 'urdf'])
             )
 
     gz_server_cmd = IncludeLaunchDescription(
@@ -26,6 +26,7 @@ def generate_launch_description():
                 ),
             launch_arguments={'gz_args': PathJoinSubstitution([rviz_sim, 'worlds', LaunchConfiguration('world')])}.items()
             )
+
     ld.add_action(world)
     ld.add_action(set_env_vars)
     ld.add_action(gz_server_cmd)
