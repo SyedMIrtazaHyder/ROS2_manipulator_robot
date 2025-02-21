@@ -24,7 +24,7 @@ def generate_launch_description():
                     'launch',
                     'gz_sim.launch.py'])
                 ),
-            launch_arguments={'gz_args': PathJoinSubstitution([rviz_sim, 'worlds', LaunchConfiguration('world')])}.items()
+            launch_arguments={'gz_args': ['-r ', PathJoinSubstitution([rviz_sim, 'worlds', LaunchConfiguration('world')])]}.items()
             )
 
     ld.add_action(world)
