@@ -1,0 +1,15 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 60  # Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    wing_position_controller:
+      type: position_controllers/JointGroupPositionController
+
+wing_position_controller:
+  ros__parameters:
+    joints:
+      - left_slider_joint
+      - right_slider_joint

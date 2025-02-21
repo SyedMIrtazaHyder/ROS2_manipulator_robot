@@ -32,5 +32,7 @@
 
     <xacro:rotating_arm_part side="right" parent="base_link" reflect="-1"/>
     <xacro:rotating_arm_part side="left" parent="base_link" reflect="1"/>
+    <!--file that includes the ros controllers -->
+    <xacro:include filename="controller.xacro"/>
 </robot>
 

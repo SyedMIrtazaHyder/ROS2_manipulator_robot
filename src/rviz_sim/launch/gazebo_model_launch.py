@@ -13,7 +13,7 @@ def generate_launch_description():
 
     # Launching the rviz file with the model
     urdf_model = LaunchConfiguration('urdf_model', default='model_core.urdf.xacro')
-    use_sim_time = LaunchConfiguration('use_sim_time', default=True)
+    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
 
     rviz_urdf_launch = IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
