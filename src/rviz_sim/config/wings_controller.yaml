@@ -11,5 +11,5 @@ controller_manager:
 wing_position_controller:
   ros__parameters:
     joints:
-      - left_slider_joint
       - right_slider_joint
+      - left_slider_joint
