@@ -8,14 +8,16 @@ from launch_ros.actions import Node
 def generate_launch_description():
     ld = LaunchDescription()
     launch_jsb = DeclareLaunchArgument(name='launch_jsb', default_value='false',
-            description="Launching jsb controller")
+            description="Variable to launch the joint_state_broadcaster controller")
+    controller_config = DeclareLaunchArgument(name='controller', default_value='wing_position_controller',
+            description="Varibale to tell which control file to launch, either controlling only the slider joints or both the slider and revolute joints")
 
     # Launching ros2_controls node
     wing_controller = Node(
             package="controller_manager",
             executable="spawner",
             name="wings_controller",
-            arguments=["wing_position_controller"]
+            arguments=[LaunchConfiguration('controller')]
             )
 
     # Launching joint state broadcaster
@@ -27,6 +29,7 @@ def generate_launch_description():
             condition=IfCondition(LaunchConfiguration('launch_jsb'))
             )
 
+    ld.add_action(controller_config)
     ld.add_action(wing_controller)
     ld.add_action(launch_jsb)
     ld.add_action(jsb)

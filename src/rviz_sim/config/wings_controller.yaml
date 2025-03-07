@@ -8,8 +8,19 @@ controller_manager:
     wing_position_controller:
       type: position_controllers/JointGroupPositionController
 
+    rotating_wing_position_controller:
+      type: position_controllers/JointGroupPositionController
+
 wing_position_controller:
   ros__parameters:
     joints:
       - right_slider_joint
       - left_slider_joint
+
+rotating_wing_position_controller:
+  ros__parameters:
+    joints:
+      - right_slider_joint
+      - right_rotating_arm_joint
+      - left_slider_joint
+      - left_rotating_arm_joint
