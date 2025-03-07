@@ -1,4 +1,4 @@
-# Manupilator Robot
+# Manipulator Robot
 
 To run with Gazebo and Rviz: `ros2 launch rviz_sim gazebo_model_launch.py`
 
